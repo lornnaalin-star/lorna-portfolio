@@ -25,7 +25,7 @@ export const links = {
   // ✏️ The Meridian isn't published yet. Paste its URL here when it launches:
   // the hero button switches to "Read The Meridian" and the Connect card
   // becomes a live link automatically.
-  meridian: "",
+  meridian: "http://www.readthemeridian.org/",
   // Where the “Ask for an introduction” button goes. A pre-filled email by default.
   introduction:
     "mailto:lornalin@sas.upenn.edu?subject=Introduction%20request&body=Hi%20Lorna%2C%0A%0AI%E2%80%99d%20love%20an%20introduction%20to%20",
