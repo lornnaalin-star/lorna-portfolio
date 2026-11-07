@@ -20,9 +20,12 @@ export const profile = {
 // ✏️ Links — replace the placeholder URLs with your own.
 export const links = {
   email: "lornalin@sas.upenn.edu",
-  linkedin: "https://www.linkedin.com/in/your-handle",
-  github: "https://github.com/your-handle",
-  meridian: "https://themeridian.example.com", // ← your publication URL
+  linkedin: "https://www.linkedin.com/in/lorna-lin/",
+  github: "https://github.com/lornnaalin-star",
+  // ✏️ The Meridian isn't published yet. Paste its URL here when it launches:
+  // the hero button switches to "Read The Meridian" and the Connect card
+  // becomes a live link automatically.
+  meridian: "",
   // Where the “Ask for an introduction” button goes. A pre-filled email by default.
   introduction:
     "mailto:lornalin@sas.upenn.edu?subject=Introduction%20request&body=Hi%20Lorna%2C%0A%0AI%E2%80%99d%20love%20an%20introduction%20to%20",
@@ -50,7 +53,10 @@ export const hero = {
   intro:
     "I’m Lorna Lin. I let my mind wander between policy, capital, institutions, and culture — and write down what I find.",
   primaryCta: { label: "Ask for an introduction", href: links.introduction },
-  secondaryCta: { label: "Read The Meridian", href: links.meridian },
+  // Shows "Read The Meridian" once links.meridian is set; until then, points to your writing.
+  secondaryCta: links.meridian
+    ? { label: "Read The Meridian", href: links.meridian }
+    : { label: "Read my writing", href: "#writing" },
   quote: {
     text: "The best conversations happen in doorways — half in one room, already curious about the next.",
     attribution: "from a notebook, somewhere between Locust Walk and Wall Street",
@@ -214,9 +220,14 @@ export const connectIntro = {
 
 export const connectLinks = [
   { label: "Email", value: links.email, href: `mailto:${links.email}`, icon: "mail" },
-  { label: "LinkedIn", value: "in/your-handle", href: links.linkedin, icon: "linkedin" },
-  { label: "GitHub", value: "@your-handle", href: links.github, icon: "github" },
-  { label: "The Meridian", value: "Read the publication", href: links.meridian, icon: "book" },
+  { label: "LinkedIn", value: "in/lorna-lin", href: links.linkedin, icon: "linkedin" },
+  { label: "GitHub", value: "@lornnaalin-star", href: links.github, icon: "github" },
+  {
+    label: "The Meridian",
+    value: links.meridian ? "Read the publication" : "Launching soon",
+    href: links.meridian, // empty = shown as "Soon", not clickable
+    icon: "book",
+  },
 ] as const;
 
 export const footer = {

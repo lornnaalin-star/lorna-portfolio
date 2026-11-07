@@ -43,32 +43,52 @@ export default function Connect() {
             </div>
 
             {/* Links */}
-            <ul className="self-end md:col-span-5">
+            <ul className="self-end border-t border-border md:col-span-5">
               {connectLinks.map((l) => {
                 const Icon = icons[l.icon];
                 const external = l.href.startsWith("http");
+                const row = "group flex items-center gap-4 py-5";
+                const body = (
+                  <>
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background/60 text-muted transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent">
+                      <Icon size={16} strokeWidth={1.5} />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[10px] uppercase tracking-[0.25em] text-muted">{l.label}</span>
+                      <span
+                        className={`block truncate font-serif text-xl transition-colors duration-500 ${
+                          l.href ? "text-foreground group-hover:text-accent" : "text-foreground/60 italic"
+                        }`}
+                      >
+                        {l.value}
+                      </span>
+                    </span>
+                  </>
+                );
                 return (
-                  <li key={l.label}>
-                    <a
-                      href={l.href}
-                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group flex items-center gap-4 border-b border-border py-5 transition-colors duration-500 first:border-t"
-                    >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background/60 text-muted transition-all duration-500 group-hover:border-accent/40 group-hover:text-accent">
-                        <Icon size={16} strokeWidth={1.5} />
-                      </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block text-[10px] uppercase tracking-[0.25em] text-muted">{l.label}</span>
-                        <span className="block truncate font-serif text-xl text-foreground transition-colors duration-500 group-hover:text-accent">
-                          {l.value}
+                  <li key={l.label} className="border-b border-border">
+                    {l.href ? (
+                      <a
+                        href={l.href}
+                        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className={row}
+                      >
+                        {body}
+                        <ArrowUpRight
+                          size={16}
+                          strokeWidth={1.5}
+                          className="text-muted transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
+                        />
+                      </a>
+                    ) : (
+                      // No URL yet (e.g. The Meridian before launch): shown, but not clickable.
+                      <div className={row}>
+                        {body}
+                        <span className="rounded-full border border-accent/30 px-2.5 py-0.5 text-[10px] uppercase tracking-[0.2em] text-accent">
+                          Soon
                         </span>
-                      </span>
-                      <ArrowUpRight
-                        size={16}
-                        strokeWidth={1.5}
-                        className="text-muted transition-all duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
-                      />
-                    </a>
+                      </div>
+                    )}
                   </li>
                 );
               })}
