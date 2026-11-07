@@ -56,7 +56,7 @@ Edit the `@theme` block:
 --color-accent:     #9b4b57;
 --color-muted:      #6e778b;
 --color-border:     #d9dee8;
---color-card:       #f6f8fb;
+--color-card:       #f4f6fa;
 --color-glow-pink:     rgba(233, 211, 216, 0.45);
 --color-glow-lavender: rgba(221, 218, 238, 0.40);
 ```

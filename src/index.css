@@ -14,9 +14,9 @@
   --color-accent: #9b4b57; /* muted wine / dusty rose */
   --color-muted: #6e778b; /* slate blue-gray — secondary text */
   --color-border: #d9dee8; /* hairline borders */
-  --color-card: #f6f8fb; /* card surfaces */
+  --color-card: #f4f6fa; /* card surfaces */
   --color-glow-pink: rgba(233, 211, 216, 0.45);
-  --color-glow-lavender: rgba(221, 218, 238, 0.4);
+  --color-glow-lavender: rgba(221, 218, 238, 0.40);
 
   /* ✏️ Fonts (files are imported in src/main.tsx) */
   --font-serif: "Cormorant Garamond", Georgia, serif;
