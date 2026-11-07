@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/*
+ * ─────────────────────────────────────────────────────────────
+ *  🎨 BRAND COLORS
+ *  Change a value here and it updates everywhere.
+ *  Each variable becomes a Tailwind utility, e.g.
+ *  --color-accent → bg-accent / text-accent / border-accent
+ * ─────────────────────────────────────────────────────────────
+ */
+@theme {
+  --color-background: #eef2f7; /* soft mist */
+  --color-foreground: #1f2a56; /* deep navy — primary text */
+  --color-accent: #9b4b57; /* muted wine / dusty rose */
+  --color-muted: #6e778b; /* slate blue-gray — secondary text */
+  --color-border: #d9dee8; /* hairline borders */
+  --color-card: #f6f8fb; /* card surfaces */
+  --color-glow-pink: rgba(233, 211, 216, 0.45);
+  --color-glow-lavender: rgba(221, 218, 238, 0.4);
+
+  /* ✏️ Fonts (files are imported in src/main.tsx) */
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-drift: drift 28s ease-in-out infinite alternate;
+  --animate-drift-slow: drift 40s ease-in-out infinite alternate-reverse;
+
+  @keyframes drift {
+    0% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(4%, 3%, 0) scale(1.08);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem; /* keeps anchors clear of the sticky nav */
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-glow-pink);
+    color: var(--color-foreground);
+  }
+
+  :focus-visible {
+    outline: 1.5px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+/* Scroll-reveal (see components/ui/Reveal.tsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
+}
