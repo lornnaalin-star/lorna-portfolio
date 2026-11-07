@@ -157,6 +157,7 @@ export type Post = {
   /** optional external link (e.g. to The Meridian). If absent, links to /writing/[slug]. */
   href?: string;
   featured?: boolean;
+  body?: string[];
 };
 
 export const writingIntro = {
@@ -175,6 +176,11 @@ export const posts: Post[] = [
     excerpt:
       "On standing in different rooms long enough that the furniture starts to look different — and why that is the most underrated skill in any career.",
     featured: true,
+    body: [
+      "I used to think perspective was mostly a matter of intelligence. The more I’ve learned, the more I’ve come to see it as a form of curiosity that becomes practical skill. People who can move between rooms without losing themselves tend to notice patterns others miss.",
+      "That is not a glamorous talent. It often looks like listening carefully, asking the question that feels slightly off-script, and letting the obvious answer get complicated before you decide it is right. It is less about being clever than about being willing to be changed by what you encounter.",
+      "The people I admire most do not flatten the differences between places. They learn the rules of each room, then carry them with them without becoming trapped by any one of them. That is the real advantage: not mastering one world perfectly, but becoming fluent across several without losing your center.",
+    ],
   },
   {
     slug: "bringing-love-to-politics",
@@ -183,6 +189,11 @@ export const posts: Post[] = [
     date: "Fall 2026",
     readTime: "6 min",
     excerpt: "What would change if we designed civic life around care rather than contest?",
+    body: [
+      "Politics is often described as a contest of interests, but it is also a contest of imagination. What we decide to believe is possible shapes what we believe is worth trying. If a system is only built to allocate power, it will often miss the emotional infrastructure that makes shared life possible.",
+      "I do not mean sentimentality. I mean attention. Care is not softness; it is a way of recognizing that the people affected by a rule have a life that continues after the policy meeting ends. If we want institutions to earn trust, they have to make room for tenderness without making it naive.",
+      "The challenge is not to replace disagreement with harmony. It is to remember that people are not abstractions in a spreadsheet. They are neighbors, workers, students, parents, and friends who need to feel seen by the structures they are asked to obey.",
+    ],
   },
   {
     slug: "notes-on-institutions",
@@ -191,6 +202,11 @@ export const posts: Post[] = [
     date: "Summer 2026",
     readTime: "5 min",
     excerpt: "Fragments on trust, memory and the slow machinery that holds a society together.",
+    body: [
+      "Institutions are often treated as fixed things: a building, a law, a board, a procedure. But most of the work they do is invisible. They keep memory, coordinate expectations, and create the conditions under which everyday life can keep moving without everyone re-negotiating everything from scratch.",
+      "Trust is not a small matter here. It accumulates slowly. It survives as the rhythm of reliable action rather than as the grand statement of a mission. When an institution begins to fail, people do not necessarily stop believing in the idea of it; they notice the gap between what it promises and what it actually does.",
+      "The deepest challenge is not to preserve institutions as they are, but to keep them capable of learning. The best ones are not static; they are the ones that remember why they began and are honest enough to change when the world has changed around them.",
+    ],
   },
   {
     slug: "between-wall-street-and-silicon-valley",
@@ -199,6 +215,11 @@ export const posts: Post[] = [
     date: "Spring 2026",
     readTime: "7 min",
     excerpt: "Two cultures that both price the future — and almost never agree on what it’s worth.",
+    body: [
+      "Both spaces are animated by ambition, but they do not speak the same language about value. Wall Street often begins from the question of risk and returns. Silicon Valley begins from the question of possibility and scale. Their differences are not trivial; they reflect different ideas about what counts as a meaningful contribution to society.",
+      "What is striking to me is how often the same people move between these worlds and return carrying different assumptions. One room rewards certainty, the other rewards speed, and both are vulnerable to the story they tell themselves about the future. The tension is not simply financial; it is cultural and moral.",
+      "I think the real question is not which system is right, but which one is accountable to the people who live under it. The future will be shaped by institutions that can translate vision into responsibility, not just momentum into profit.",
+    ],
   },
   {
     slug: "reflections",
@@ -207,6 +228,11 @@ export const posts: Post[] = [
     date: "Ongoing",
     readTime: "—",
     excerpt: "A running notebook of smaller thoughts that haven’t grown into essays yet.",
+    body: [
+      "Some of the best ideas arrive as fragments. A sentence overheard on a sidewalk, a paragraph in a book that feels strangely familiar, a conversation that makes a person seem more complex than the label attached to them. These are the pieces that do not yet belong to a larger argument, but they still deserve to be kept.",
+      "This notebook is a reminder that thinking is not always linear. It can be recursive, iterative, and a little bit messy. The point is not to be polished before you begin, but to keep returning to what seems important enough to notice.",
+      "I write these notes to keep my attention honest. They are not final answers, only faithful questions. And sometimes, a good question is more useful than a perfect answer.",
+    ],
   },
 ];
 
