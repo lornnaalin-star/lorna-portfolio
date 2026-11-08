@@ -1,6 +1,18 @@
 // ✏️ Profile photo. To change it, replace src/assets/lorna-portrait.jpg
 // (keep the same name), or import a different file here.
 import portraitImg from "@/assets/lorna-portrait.jpg";
+// ✏️ Artwork images (Studio section). Add new files to src/assets/art/ and import them here.
+import artViolinAndLilies from "@/assets/art/violin-and-lilies.jpg";
+import artRabbitBetweenUs from "@/assets/art/the-rabbit-between-us.jpg";
+import artTwoChildren from "@/assets/art/two-children-looking-up.jpg";
+import artUnderTheLamp from "@/assets/art/under-the-lamp.jpg";
+import artSeaWind from "@/assets/art/sea-wind.jpg";
+import artRosesInGlass from "@/assets/art/roses-in-glass.jpg";
+import artSunflowers from "@/assets/art/sunflowers-at-dusk.jpg";
+import artGirlInPolkaDots from "@/assets/art/girl-in-polka-dots.jpg";
+import artStillLifeWineGlass from "@/assets/art/still-life-with-wine-glass.jpg";
+import artApplesInFolds from "@/assets/art/apples-in-the-folds.jpg";
+import artTwoOnAPlate from "@/assets/art/two-on-a-plate.jpg";
 
 /**
  * ─────────────────────────────────────────────────────────────
@@ -264,36 +276,102 @@ export const meridianFeature = {
 // ✏️ STUDIO — your artwork (Poiesis Studio).
 export type Artwork = {
   title: string;
-  /** e.g. "Oil on canvas", "Ink on paper", "Digital" */
+  /** e.g. "Oil on canvas", "Watercolor", "Charcoal on paper" */
   medium?: string;
   year?: string;
+  /** The story behind the piece — shown when someone opens it. */
+  story?: string;
   /**
    * The picture. Put the file in src/assets/art/ and import it at the top of
-   * this file, e.g.  import piece1 from "@/assets/art/piece-1.jpg";
-   * then set  image: piece1.  Without an image, a soft placeholder is shown.
+   * this file, then set  image: yourImport.  Without an image, a soft placeholder is shown.
    */
   image?: string;
   /** optional link, e.g. to the Instagram post */
   href?: string;
-  /** shape of the tile: tall, square or wide */
+  /** placeholder shape only (pieces with images keep their own proportions) */
   shape?: "tall" | "square" | "wide";
 };
 
 export const studioIntro = {
   eyebrow: "V · Studio",
   title: "Poiesis Studio",
-  body: "Poiesis is the Greek word for bringing something into being. This is where I make things with my hands instead of words.",
+  body: "Poiesis is the Greek word for bringing something into being. This is where I make things with my hands instead of words — and behind every piece is a story.",
   handle: "@poiesis_studio",
 };
 
-// ✏️ Replace these placeholders with your pieces (see `Artwork` above).
+// ✏️ Your pieces, in the order they appear on the wall.
+// Titles, mediums and stories are drafts — rewrite them in your own words.
 export const artworks: Artwork[] = [
-  { title: "Piece I", shape: "tall" },
-  { title: "Piece II", shape: "square" },
-  { title: "Piece III", shape: "square" },
-  { title: "Piece IV", shape: "tall" },
-  { title: "Piece V", shape: "wide" },
-  { title: "Piece VI", shape: "square" },
+  {
+    title: "Violin and Lilies",
+    medium: "Oil",
+    image: artViolinAndLilies,
+    story:
+      "A red violin resting on open sheet music, white lilies leaning in from the dark. Music and flowers — two things that only last as long as someone is paying attention.",
+  },
+  {
+    title: "The Rabbit Between Us",
+    medium: "Watercolor",
+    image: artRabbitBetweenUs,
+    story:
+      "Two girls in sun hats, a white rabbit, a red cloth between them, and tall grass all around — a quiet, shared moment of care.",
+  },
+  {
+    title: "Two Children, Looking Up",
+    medium: "Charcoal and white on cardboard",
+    image: artTwoChildren,
+    story:
+      "Two young faces turned upward, drawn on cardboard so the corrugated texture shows through — the most ordinary material holding the most open expressions.",
+  },
+  {
+    title: "Under the Lamp",
+    medium: "Watercolor, in two panels",
+    image: artUnderTheLamp,
+    story:
+      "A desk lamp above, a girl curled into herself below, and bubbles drifting between the two panels. Split across two sheets, the way some feelings are.",
+  },
+  {
+    title: "Sea Wind",
+    medium: "Oil on canvas",
+    image: artSeaWind,
+    story: "A laugh caught mid-turn — blonde hair crossing the face, a blue collar against a cloudy, sea-colored sky.",
+  },
+  {
+    title: "Roses in Glass",
+    medium: "Watercolor and pastel",
+    image: artRosesInGlass,
+    story: "Yellow, coral and deep red roses in a clear glass, their stems crossing underwater. Some are opening, some already past it.",
+  },
+  {
+    title: "Sunflowers at Dusk",
+    medium: "Acrylic on canvas",
+    image: artSunflowers,
+    story: "Two pale sunflowers against a violet-dark ground — light flowers painted in the hour after the light has gone.",
+  },
+  {
+    title: "Girl in Polka Dots",
+    medium: "Charcoal and white on toned paper",
+    image: artGirlInPolkaDots,
+    story: "A steady, direct gaze framed by long, loose waves of hair. Most of this drawing is hair — and the patience it takes.",
+  },
+  {
+    title: "Still Life with Wine Glass",
+    medium: "Graphite",
+    image: artStillLifeWineGlass,
+    story: "A glass on a carved stand, cherries, a plum and two gourds on draped cloth — an exercise in how light falls across folds.",
+  },
+  {
+    title: "Apples in the Folds",
+    medium: "Graphite",
+    image: artApplesInFolds,
+    story: "Apples and pears tucked into crumpled cloth, seen from above, a stem cutting across the page.",
+  },
+  {
+    title: "Two on a Plate",
+    medium: "Graphite",
+    image: artTwoOnAPlate,
+    story: "A pear and an apple on a plain plate. The simplest still life — and the one that teaches you shadow.",
+  },
 ];
 
 // ✏️ CONNECT
