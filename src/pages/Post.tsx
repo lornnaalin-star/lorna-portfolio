@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { posts, profile } from "@/content/site";
 import { usePageTitle } from "@/lib/usePageTitle";
 import NotFound from "./NotFound";
@@ -13,6 +13,7 @@ export default function Post() {
   if (!post) return <NotFound />;
 
   const paragraphs = post.body ?? [];
+  const next = posts[(posts.indexOf(post) + 1) % posts.length];
 
   return (
     <article className="mx-auto max-w-2xl px-6 pt-16 pb-32 md:pt-24">
@@ -51,6 +52,24 @@ export default function Post() {
       <p className="mt-16 border-t border-border pt-6 font-serif text-lg italic text-muted">
         Thank you for reading.
       </p>
+
+      {/* Next essay — loops back to the first after the last */}
+      {next && next.slug !== post.slug && (
+        <Link
+          to={next.href ?? `/writing/${next.slug}`}
+          className="group mt-10 block rounded-2xl border border-border bg-card/70 p-7 transition-all duration-500 hover:border-accent/30 hover:bg-card"
+        >
+          <p className="text-[10px] uppercase tracking-[0.28em] text-muted">Next · {next.kind}</p>
+          <p className="mt-3 flex items-center justify-between gap-4 font-serif text-3xl font-light text-foreground transition-colors duration-500 group-hover:text-accent">
+            {next.title}
+            <ArrowRight
+              size={20}
+              strokeWidth={1.25}
+              className="shrink-0 transition-transform duration-500 group-hover:translate-x-1"
+            />
+          </p>
+        </Link>
+      )}
 
       <p className="mt-8">
         <Link to="/writing" className="text-[13px] tracking-[0.08em] text-foreground hover:text-accent">
