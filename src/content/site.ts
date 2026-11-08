@@ -30,6 +30,10 @@ export const links = {
   meridian: "https://readthemeridian.org/",
   // ✏️ Your art account (Poiesis Studio)
   instagram: "https://www.instagram.com/poiesis_studio/",
+  // ✏️ Live Instagram feed for the Studio section (from behold.so — see README).
+  // Paste your Behold JSON feed URL here, e.g. "https://feeds.behold.so/AbC123...".
+  // Leave "" to show the pieces listed in `artworks` instead.
+  instagramFeed: "",
   // Where the “Ask for an introduction” button goes. A pre-filled email by default.
   introduction:
     "mailto:lornalin@sas.upenn.edu?subject=Introduction%20request&body=Hi%20Lorna%2C%0A%0AI%E2%80%99d%20love%20an%20introduction%20to%20",

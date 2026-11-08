@@ -3,6 +3,7 @@ import { artworks, links, studioIntro, type Artwork } from "@/content/site";
 import Section from "@/components/ui/Section";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
+import { useInstagramFeed } from "@/lib/useInstagramFeed";
 
 const shapeClass: Record<NonNullable<Artwork["shape"]>, string> = {
   tall: "aspect-[3/4]",
@@ -58,13 +59,17 @@ function ArtworkTile({ art, index }: { art: Artwork; index: number }) {
 
 /** V · Studio — artwork from Poiesis Studio. Edit `artworks` in src/content/site.ts. */
 export default function Studio() {
+  // Live Instagram posts when links.instagramFeed is set; otherwise the pieces in site.ts.
+  const feed = useInstagramFeed(links.instagramFeed);
+  const pieces = feed ?? artworks;
+
   return (
     <Section id="studio" className="border-y border-border/70 bg-white/20">
       <SectionHeader eyebrow={studioIntro.eyebrow} title={studioIntro.title} body={studioIntro.body} />
 
       {/* Gallery wall: a loose masonry of pieces */}
       <div className="columns-2 gap-4 md:columns-3 md:gap-6 [&>*]:mb-6 md:[&>*]:mb-8">
-        {artworks.map((art, i) => (
+        {pieces.map((art, i) => (
           <Reveal key={`${art.title}-${i}`} delay={(i % 3) * 100} className="break-inside-avoid">
             <ArtworkTile art={art} index={i} />
           </Reveal>

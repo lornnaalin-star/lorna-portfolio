@@ -76,3 +76,14 @@ The fonts are self-hosted with `@fontsource`, so nothing loads from Google. To s
 ## Next steps
 - Write real essays: add a `body` field to posts and render it in `src/pages/Post.tsx`.
 - Add a social preview image (`public/og.png`) and an `og:image` tag in `index.html`.
+
+## Live Instagram art feed (Studio section)
+
+The Studio section can show your latest @poiesis_studio posts automatically via [Behold](https://behold.so) (free plan: up to 6 posts, refreshed daily).
+
+1. Instagram must be a **Professional (Creator) account**: Instagram app → Settings and privacy → Account type and tools → Switch to professional account. It's free and reversible.
+2. Sign up at behold.so, connect Instagram, then **+ Add Feed → JSON**.
+3. In the feed settings, add your site's domain (e.g. `lorna-portfolio.vercel.app`) to the allowed domains.
+4. Copy the feed URL (`https://feeds.behold.so/...`) into `instagramFeed` in `src/content/site.ts`.
+
+Each post's title comes from the first line of its caption, and each tile links to the post. If the feed is empty or can't load, the site shows the `artworks` list instead.
