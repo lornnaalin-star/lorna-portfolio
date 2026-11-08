@@ -1,6 +1,6 @@
 import SmartLink from "@/components/ui/SmartLink";
 import { ArrowUpRight } from "lucide-react";
-import { posts, writingIntro, type Post } from "@/content/site";
+import { links, meridianFeature, posts, writingIntro, type Post } from "@/content/site";
 import Section from "@/components/ui/Section";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
@@ -100,6 +100,46 @@ export default function Writing() {
           </Reveal>
         </div>
       </div>
+
+      {/* The Meridian — the publication Lorna is building. Edit `meridianFeature` in site.ts. */}
+      {links.meridian && (
+        <Reveal>
+          <a
+            href={links.meridian}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative mt-20 block overflow-hidden rounded-[2rem] border border-border bg-foreground px-8 py-12 text-background transition-all duration-700 hover:shadow-[0_30px_80px_-35px_rgba(31,42,86,0.6)] md:px-14 md:py-16"
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-32 -right-20 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(233,211,216,0.28),transparent_70%)] transition-transform duration-1000 group-hover:scale-125"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-40 left-10 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(221,218,238,0.18),transparent_70%)]"
+            />
+            <div className="relative grid gap-8 md:grid-cols-12 md:items-end">
+              <div className="md:col-span-8">
+                <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.28em] text-background/60">
+                  <span className="h-px w-8 bg-[#e9d3d8]/60" />
+                  {meridianFeature.label}
+                </p>
+                <h3 className="mt-6 font-serif text-5xl font-light md:text-7xl">
+                  {meridianFeature.title.split(" ").slice(0, -1).join(" ")}{" "}
+                  <em className="text-[#e9d3d8]">{meridianFeature.title.split(" ").slice(-1)}</em>
+                </h3>
+                <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-background/70">{meridianFeature.body}</p>
+              </div>
+              <div className="md:col-span-4 md:justify-self-end">
+                <span className="inline-flex items-center gap-2 rounded-full border border-background/25 px-6 py-3 text-[14px] tracking-[0.02em] transition-colors duration-500 group-hover:border-[#e9d3d8] group-hover:text-[#e9d3d8]">
+                  {meridianFeature.linkLabel}
+                  <ArrowUpRight size={16} strokeWidth={1.5} className="transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </div>
+            </div>
+          </a>
+        </Reveal>
+      )}
     </Section>
   );
 }

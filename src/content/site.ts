@@ -26,10 +26,10 @@ export const links = {
   email: "lornalin@sas.upenn.edu",
   linkedin: "https://www.linkedin.com/in/lorna-lin/",
   github: "https://github.com/lornnaalin-star",
-  // ✏️ The Meridian isn't published yet. Paste its URL here when it launches:
-  // the hero button switches to "Read The Meridian" and the Connect card
-  // becomes a live link automatically.
-  meridian: "http://www.readthemeridian.org/",
+  // ✏️ The Meridian — the publication you're building. Leave "" to hide the links.
+  meridian: "https://readthemeridian.org/",
+  // ✏️ Your art account (Poiesis Studio)
+  instagram: "https://www.instagram.com/poiesis_studio/",
   // Where the “Ask for an introduction” button goes. A pre-filled email by default.
   introduction:
     "mailto:lornalin@sas.upenn.edu?subject=Introduction%20request&body=Hi%20Lorna%2C%0A%0AI%E2%80%99d%20love%20an%20introduction%20to%20",
@@ -41,6 +41,7 @@ export const navItems = [
   { id: "rooms", label: "Rooms" },
   { id: "fields", label: "Fields" },
   { id: "writing", label: "Writing" },
+  { id: "studio", label: "Studio" },
   { id: "connect", label: "Connect" },
 ] as const;
 
@@ -76,6 +77,7 @@ export const hero = {
   marginalia: [
     { label: "Currently", value: "Penn ’26 · Econ & PoliSci" },
     { label: "Thinking about", value: "Why some institutions earn trust" },
+    { label: "Building", value: "The Meridian" },
     { label: "Reading", value: "Anything with footnotes" },
   ],
 };
@@ -247,9 +249,52 @@ export const posts: Post[] = [
   },
 ];
 
+// ✏️ THE MERIDIAN — shown as a feature card at the end of the Writing section.
+export const meridianFeature = {
+  label: "Currently building",
+  title: "The Meridian",
+  body: "A publication I’m building — a place for essays and conversations that cross the lines between disciplines.",
+  linkLabel: "readthemeridian.org",
+};
+
+// ✏️ STUDIO — your artwork (Poiesis Studio).
+export type Artwork = {
+  title: string;
+  /** e.g. "Oil on canvas", "Ink on paper", "Digital" */
+  medium?: string;
+  year?: string;
+  /**
+   * The picture. Put the file in src/assets/art/ and import it at the top of
+   * this file, e.g.  import piece1 from "@/assets/art/piece-1.jpg";
+   * then set  image: piece1.  Without an image, a soft placeholder is shown.
+   */
+  image?: string;
+  /** optional link, e.g. to the Instagram post */
+  href?: string;
+  /** shape of the tile: tall, square or wide */
+  shape?: "tall" | "square" | "wide";
+};
+
+export const studioIntro = {
+  eyebrow: "V · Studio",
+  title: "Poiesis Studio",
+  body: "Poiesis is the Greek word for bringing something into being. This is where I make things with my hands instead of words.",
+  handle: "@poiesis_studio",
+};
+
+// ✏️ Replace these placeholders with your pieces (see `Artwork` above).
+export const artworks: Artwork[] = [
+  { title: "Piece I", shape: "tall" },
+  { title: "Piece II", shape: "square" },
+  { title: "Piece III", shape: "square" },
+  { title: "Piece IV", shape: "tall" },
+  { title: "Piece V", shape: "wide" },
+  { title: "Piece VI", shape: "square" },
+];
+
 // ✏️ CONNECT
 export const connectIntro = {
-  eyebrow: "V · Connect",
+  eyebrow: "VI · Connect",
   title: "Come say hello",
   body: "I’m always glad to meet people building, writing or wondering about something. If you think I should know someone — or someone should know you — I’d love to make the introduction.",
   signoff: "Warmly, Lorna",
@@ -261,10 +306,11 @@ export const connectLinks = [
   { label: "GitHub", value: "@lornnaalin-star", href: links.github, icon: "github" },
   {
     label: "The Meridian",
-    value: links.meridian ? "Read the publication" : "Launching soon",
+    value: links.meridian ? "readthemeridian.org" : "Launching soon",
     href: links.meridian, // empty = shown as "Soon", not clickable
     icon: "book",
   },
+  { label: "Art · Instagram", value: "@poiesis_studio", href: links.instagram, icon: "instagram" },
 ] as const;
 
 export const footer = {

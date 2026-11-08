@@ -1,10 +1,10 @@
-import { ArrowUpRight, BookOpen, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, BookOpen, Github, Instagram, Linkedin, Mail } from "lucide-react";
 import { connectIntro, connectLinks, links } from "@/content/site";
 import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import Button from "@/components/ui/Button";
 
-const icons = { mail: Mail, linkedin: Linkedin, github: Github, book: BookOpen } as const;
+const icons = { mail: Mail, linkedin: Linkedin, github: Github, book: BookOpen, instagram: Instagram } as const;
 
 /**
  * V · Connect — composed like a short letter, with the ways to reach
