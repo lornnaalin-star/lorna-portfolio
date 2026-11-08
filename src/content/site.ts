@@ -1,3 +1,7 @@
+// ✏️ Profile photo. To change it, replace src/assets/lorna-portrait.jpg
+// (keep the same name), or import a different file here.
+import portraitImg from "@/assets/lorna-portrait.jpg";
+
 /**
  * ─────────────────────────────────────────────────────────────
  *  SITE CONTENT
@@ -60,6 +64,13 @@ export const hero = {
   quote: {
     text: "The best conversations happen in doorways — half in one room, already curious about the next.",
     attribution: "from a notebook, somewhere between Locust Walk and Wall Street",
+  },
+  portrait: {
+    src: portraitImg,
+    alt: "Lorna Lin in a pink suit outside the U.S. Treasury Department in Washington, D.C.",
+    caption: "The Treasury, Washington, D.C.",
+    // Which part of the photo stays in frame when cropped (CSS object-position).
+    focus: "50% 30%",
   },
   // Small margin notes shown beside the hero on large screens.
   marginalia: [
